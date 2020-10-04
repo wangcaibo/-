@@ -1,0 +1,23 @@
+import random
+x = [(2.104),(1.416),(1.534),(0.852)]
+y = [460,232,315,178]
+J0=0
+J1=0
+m=len(x)
+a=0.00001
+t=0.00001
+a0=1
+a1=1
+a00=100
+a11=100
+b=[0,1,2,3]    
+while(a00-a0>a or a11-a1>a):
+    i=random.choice(b)
+    h=a0+a1*x[i]
+    J0=h-y[i]
+    J1=(h-y[i])*x[i]
+    a00=a0
+    a11=a1
+    a0=a0-t*J0
+    a1=a1-t*J1
+print(a0,a1)
