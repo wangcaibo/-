@@ -1,0 +1,15 @@
+import numpy as np
+import matplotlib.pyplot as plt
+h=0.1
+x=0
+f=[]
+a=[]
+y=1
+for i in range(1,12): 
+    f.append(y)
+    a.append(x)
+    k=y-2*x/y
+    y=y+k*h
+    x=x+h
+plt.plot(a,f)
+plt.show()
