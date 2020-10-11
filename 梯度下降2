@@ -12,12 +12,12 @@ a2=1
 a00=100
 a11=100
 a22=100
-for i in range(m):
-    h=a0+a1*x[i][0]+a2*x[i][1]
-    J0=J0+h-y[i]
-    J1=J1+(h-y[i])*x[i][0]
-    J2=J2+(h-y[i])*x[i][1]
 while(a00-a0>a or a11-a1>a or a22-a2>a):
+    for i in range(m):
+        h=a0+a1*x[i][0]+a2*x[i][1]
+        J0=J0+h-y[i]
+        J1=J1+(h-y[i])*x[i][0]
+        J2=J2+(h-y[i])*x[i][1]
     a00=a0
     a11=a1
     a22=a2
