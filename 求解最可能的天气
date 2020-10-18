@@ -1,0 +1,44 @@
+import numpy as np
+states = {'Rainy', 'Sunny'}
+observations = ('walk', 'shop', 'clean')
+s = {'Rainy': 0.6, 'Sunny': 0.4}
+t = {
+ 'Rainy' : {'Rainy': 0.7, 'Sunny': 0.3},
+ 'Sunny' : {'Rainy': 0.4, 'Sunny': 0.6},
+ }
+e = {
+ 'Rainy' : {'walk': 0.1, 'shop': 0.4, 'clean': 0.5},
+ 'Sunny' : {'walk': 0.6, 'shop': 0.3, 'clean': 0.1},
+}
+if e['Sunny']['walk'] * s['Sunny'] > e['Rainy']['walk'] * s['Rainy']:
+    print("第一天：Sunny")
+else:
+    print("第一天：Rainy")
+a=e['Sunny']['walk'] *s['Sunny']
+b=e['Rainy']['walk'] * s['Rainy']
+if a *t['Sunny']['Sunny']*e['Sunny']['shop']>b*t['Rainy']['Sunny']*e['Sunny']['shop']:
+    s=a *t['Sunny']['Sunny']*e['Sunny']['shop']
+else:
+    s=b*t['Rainy']['Sunny']*e['Sunny']['shop']
+
+if a *t['Sunny']['Rainy']*e['Rainy']['shop']>b*t['Rainy']['Rainy']*e['Rainy']['shop']:
+    r=a *t['Sunny']['Rainy']*e['Rainy']['shop']
+else:
+    r=b*t['Rainy']['Rainy']*e['Rainy']['shop']
+if s>r:   
+    print("第二天：Sunny")
+else:
+    print("第二天：Rainy")
+if s*t['Sunny']['Sunny']*e['Sunny']['clean']>r*t['Rainy']['Sunny']*e['Sunny']['clean']:
+    S=s*t['Sunny']['Sunny']*e['Sunny']['clean']
+else:
+    S=r*t['Rainy']['Sunny']*e['Sunny']['clean']
+
+if s*t['Sunny']['Rainy']*e['Rainy']['clean']>r*t['Rainy']['Rainy']*e['Rainy']['clean']:
+    R=s*t['Sunny']['Rainy']*e['Rainy']['clean']
+else:
+    R=r*t['Rainy']['Rainy']*e['Rainy']['clean']
+if S>R:    
+    print("第三天：Sunny")
+else:
+    print("第三天：Rainy")
