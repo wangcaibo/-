@@ -1,0 +1,23 @@
+import random
+import math
+import matplotlib.pyplot as plt
+a=[]
+b=[] 
+d=[]
+e=[]
+sum_ = (math.pow(0.6, 5) - math.pow(-0.4, 5)) / 5
+def f(x):
+    return math.pow(x-0.4,4)/sum_
+c=math.pow(0.6,4)/sum_
+for i in range(2000):
+    x=random.uniform(0,1)
+    y=random.uniform(0,1)  
+    if c*y<f(x):
+        d.append(x)
+        e.append(y)
+    else:
+        a.append(x)
+        b.append(y)
+plt.scatter(d,e)
+plt.scatter(a,b)
+plt.show()
