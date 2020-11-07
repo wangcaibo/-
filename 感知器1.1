@@ -1,0 +1,31 @@
+class Perceptron: 
+    
+    def aa():
+        c = eval(input("请输入矩阵c:\n"))     
+        import ast
+        b = ast.literal_eval(input("请输入列表b，使用逗号隔开: ")) 
+        def f(x):
+            return 1 if x > 0 else 0
+    
+        import random
+        m=0
+        n=0.01
+        w = [0,0]
+        for r in range(10000):
+            j=[0,1,2,3]
+            i=random.choice(j)
+            a=c[i]
+            e=list(map(lambda x,y:x*y,a,w))
+            t=e[0]+e[1]
+            t=t+m
+            w[0]=w[0]+n*(b[i]-f(t))*a[0]
+            w[1]=w[1]+n*(b[i]-f(t))*a[1]
+            m=m+n*(b[i]-f(t))
+        
+        def and_(p,q):
+            h=w[0]*p+w[1]*q+m
+            return f(h)
+        print(and_(1,1),and_(0,1),and_(1,0),and_(0,0))
+        print(w,m)
+p=Perceptron
+p.aa()
